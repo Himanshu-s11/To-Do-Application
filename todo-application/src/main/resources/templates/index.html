@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="//www.thymeleaf.org">
+     <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible"> 
+        <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/3.4.1/css/bootstrap.min.css}"/>
+        <link rel="stylesheet" type="text/css" href="" th:href="@{css/style.css}" >
+     </head>
+
+     <body style="background-image: url('images/px.jpg');">
+     
+     
+     
+     <!-- Just an image -->
+  <nav class="navbar navbar-light bg-primanry">
+  <p style="color: white; float: Left; margin-top: 10px; margin-left: 10px; font-size: 20PX; font-weight: 5px;" >To-do List </p>
+   <p th:text="|HAPPY ${today}|" style="color: white; float: right; margin-top: 10px; margin-right: 20px; font-size: 20PX; font-weight: 5px;" >Today </p>
+  </nav>
+  
+  
+   <!-- text area for qoutes-->
+     
+   
+  <div class="card" style="width: 18rem; margin-right: 40px; float: right; margin-bottom: 10px;">
+  <img class="card-img-top" src="" th:src="@{images/img.jpg}"  alt="Card image cap">
+  <div class="card-body">
+    <p class="card-text" th:text=${time.clock} style="font-size: 25px; font-weight:50px;"></p>
+    <p class="card-text" th:text=${Date.date} style="font-size: 25px; font-weight:5px;"></p>
+  </div>
+  </div>
+ 
+     
+     
+        <div class="container">
+        
+          <h1 class="text-center">ToDo List</h1>
+          <table class="table table-bordered">
+          <thead>
+         <tr>
+             <th>Id</th>
+             <th>Description</th>
+             <th>Complete</th>
+             <th>Created Date</th>
+             <th>Modified Date</th>
+             <th>Action</th>
+         </tr>
+         </thead>
+         <tbody>
+               <tr th:each="items : ${TodoItems}" th:class="${items.complete} ? success : warning" >
+                 
+                 <td th:text="${items.id}">item_id</td>
+                 <td th:text="${items.description}">desc</td>
+                 <td th:text="${items.complete}">done</td>
+                 <td th:text="${items.createdDate}">today date</td>
+                 <td th:text="${items.modifiedDate}">today date</td> 
+                 <td>
+                   <div class="btn btn-group-sm" role="group">
+         
+                       <a class="btn btn-info" th:href="@{/edit/{id}(id=${items.id})}">Edit</a>
+                        <a class="btn btn-danger" th:href="@{/delete/{id}(id=${items.id})}">Delete</a>
+                   </div>
+                 </td>
+               </tr>
+         </tbody>
+         </table>
+          <p><a class="btn btn-success" href="/addToDo">Add To Do</a></p>
+        </div>
+     
+         <script th:href="@{/webjars/jquery/3.6.0/jquery.min.js} "></script>
+         <script th:href="@{/webjars/bootstrap/3.4.1/bootstrap.min.js} "></script>
+         
+        
+     </body>
+</html>

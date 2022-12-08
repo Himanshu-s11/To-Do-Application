@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="//www.thymeleaf.org">
+     <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible"> 
+        <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/3.4.1/css/bootstrap.min.css}"/>
+     </head>
+        <body>
+            <div class="container">
+              <div class="col-md-6">
+                  <form action="#" th:action="@{/todo/{id}(id=${todo.id})}"
+                    th:object="${todo}" method="POST">
+                  <div class="form-group">
+                  <label for="description">Description</label>
+                  <input class="form-controller" type="text" th:field="*{description}" id="description" placeholder="Add Description">
+                  </div>
+                  <div class="checknox">
+                  <label>
+                    <input type="checkbox" th:checked="${complete} == true" th:field="*{complete}" id="complete">Complete
+                  </label>
+                  </div>
+                   <button type="submit" class="btn btn-primary">Save</button>
+                   <input type="hidden" th:field="*{createdDate}">
+                   <input type="hidden" th:field="*{modifiedDate}">
+                  </form>
+              </div>
+               
+            </div>
+        </body>
+     </html>

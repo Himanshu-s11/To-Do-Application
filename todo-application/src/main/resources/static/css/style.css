@@ -1,0 +1,45 @@
+body{
+	background-color: #E6E6FA;
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	
+	}
+	
+.navbar{
+	background: transparent;
+	border-width: 2px;
+	border-radius:15px;
+	border-style: solid;
+	border-color: black;
+	
+}
+.card-img-top{
+	height: 25vh;
+	overflow: hidden;
+	width: 100%;
+	border-top-left-radius: 9px;
+	border-top-right-radius: 9px;
+	
+}
+.text-center{
+	font-size: 40px;
+	font-weight: bold;
+	color: red;
+}
+.container{
+ padding-right: 167px;	
+}
+.card{
+	border-radius: 20px;
+	border-style: solid;
+	border-color: black;
+}
+
+.card-text{
+	text-align: center;
+	color: white;
+}
+tr{
+  background-color: white;
+ }
