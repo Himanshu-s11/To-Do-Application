@@ -15,8 +15,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 @NoArgsConstructor
-@Getter
-@Setter
+
 @Entity
 @Table(name = "todoList")
 public class TodoItem {
@@ -41,11 +40,97 @@ public class TodoItem {
 		this.clock=clock;
 		this.date=date;
 	}
+	
+	
 
 	@Override
 	public String toString() {
 		return "TodoItem [id=" + id + ", description=" + description + ", complete=" + complete + ", createdDate="
 				+ createdDate + ", modifiedDate=" + modifiedDate + ", clock=" + clock +", date=" + date +"]";
+	}
+
+
+
+	public Long getId() {
+		return id;
+	}
+
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+
+	public String getDescription() {
+		return description;
+	}
+
+
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+
+
+	public boolean isComplete() {
+		return complete;
+	}
+
+
+
+	public void setComplete(boolean complete) {
+		this.complete = complete;
+	}
+
+
+
+	public Instant getCreatedDate() {
+		return createdDate;
+	}
+
+
+
+	public void setCreatedDate(Instant createdDate) {
+		this.createdDate = createdDate;
+	}
+
+
+
+	public Instant getModifiedDate() {
+		return modifiedDate;
+	}
+
+
+
+	public void setModifiedDate(Instant modifiedDate) {
+		this.modifiedDate = modifiedDate;
+	}
+
+
+
+	public String getClock() {
+		return clock;
+	}
+
+
+
+	public void setClock(String clock) {
+		this.clock = clock;
+	}
+
+
+
+	public String getDate() {
+		return date;
+	}
+
+
+
+	public void setDate(String date) {
+		this.date = date;
 	}
 	
 	

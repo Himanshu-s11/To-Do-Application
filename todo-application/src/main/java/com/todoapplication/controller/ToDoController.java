@@ -21,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.todoapplication.model.TodoItem;
 import com.todoapplication.repository.TodoItemRepo;
+import com.todoapplication.service.TodoService;
 
 @Controller
 public class ToDoController {
@@ -30,22 +31,27 @@ public class ToDoController {
 	
 	@Autowired
 	private TodoItemRepo itemRepo;
+	@Autowired
+	private TodoService service;
 	
 	@GetMapping("/")
 	public ModelAndView index(@Valid TodoItem item) {
 		logger.debug("request to get index");
 		
 		ModelAndView modelAndView= new ModelAndView("index");
-		//for date
+//		//for date
 		Date date = new Date();
 		 SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yy");
 	       String str = formatter.format(date);
 		item.setDate(str);
 		
+	    
+	    
+		
 		//for time
 		
 		DateFormat t = new SimpleDateFormat("hh:mm:ss a");
-        String time = t.format(new Date());
+       String time = t.format(new Date());
 		item.setClock(time);
 		
 		modelAndView.addObject("TodoItems", itemRepo.findAll());
